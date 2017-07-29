@@ -11,7 +11,7 @@ import Logger
 import time
 
 APP_DELAY    = 2
-switch_state = False
+switch_state = True
 
 def energy_monitor_loop():
     global switch_state
@@ -20,10 +20,10 @@ def energy_monitor_loop():
     energenie.loop()
 
     # For all devices in the registry, if they have a switch, toggle it
-    for d in energenie.registry.devices():
-        if d.has_switch():
-            d.set_switch(switch_state)
-    switch_state = not switch_state
+    # for d in energenie.registry.devices():
+    #     if d.has_switch():
+    #         d.set_switch(switch_state)
+    # switch_state = not switch_state
 
     # For all devices in the registry, if they have a get_power(), call it
     print("Checking device status")
@@ -58,4 +58,3 @@ if __name__ == "__main__":
         energenie.finished()
 
 # END
-
